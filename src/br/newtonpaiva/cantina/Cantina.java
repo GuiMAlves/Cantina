@@ -25,10 +25,10 @@ public class Cantina {
                 break;
 
             ingrediente = new Ingrediente();
-            ingrediente.setNome(opcao);
+            ingrediente.setNome(opcao.toString());
             pedido.getIngredientes().add(ingrediente);
         }
 
-        JOptionPane.showMessageDialog(null, "Pedido feito para " + pedido.getCliente().getNome() + "\n" + i);
+        JOptionPane.showMessageDialog(null, "Pedido feito para " + pedido.getCliente().getNome() + "\n");
     }
 }
