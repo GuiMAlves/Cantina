@@ -7,10 +7,18 @@ public class Cantina {
         Pedido pedido = new Pedido();
         Integer opcao;
         Ingrediente ingrediente;
+        Double valor;
 
         pedido.getCliente().setNome(JOptionPane.showInputDialog(null, "Informe o nome do cliente:"));
         pedido.getMassa().setTipo(JOptionPane.showInputDialog(null, "Informe o nome da massa: "));
-        pedido.getMassa().setValor(Double.parseDouble(JOptionPane.showInputDialog(null, "Informe o valor da massa:")));
+        try {
+            valor = Double.parseDouble(JOptionPane.showInputDialog(null, "Informe o valor da massa:"));
+        } catch (NumberFormatException ex)
+            {
+                JOptionPane.showMessageDialog(null, "Erro! Escreva somente números. Tente Novamente!");
+                return;
+            }
+        pedido.getMassa().setValor(valor);
 
         while (true) {
             opcao = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe os ingredientes escolhidos:\n" +
